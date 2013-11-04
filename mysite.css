@@ -1,0 +1,42 @@
+body {
+/*	background-color: #d2b48c;*/
+	margin-left: 20%;
+	margin-right: 20%;
+	border: 1px dotted grey;
+	padding: 10px 10px 10px 10px;
+	font-family: sans-serif;
+}
+
+h1 {
+	color: gray;
+	border-bottom: 1px solid black;
+}
+
+blockquote {
+	background-color: yellow;
+	border: 1px solid gray;
+	color: maroon;
+	font-size: 90%;
+}
+
+p {
+	text-align: justify;
+}
+
+/*
+** BELOW ARE MORE SPECIFIC ONE'S WITH ASSOCIATED CLASS
+*/
+
+/*
+** Multiple elements can also be added separated by comma.
+** If there are many elements with class evilworld, we can just declare it as .evilworld
+** This will ensure that the styles are applied to all the elements that are under the class
+*/
+blockquote.evilworld {
+	color: yellow;
+	background-color: red;
+}
+
+address {
+	font-family: serif;
+}
