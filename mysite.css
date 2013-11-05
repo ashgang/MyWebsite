@@ -4,12 +4,22 @@ body {
 	margin-right: 20%;
 	border: 1px dotted grey;
 	padding: 10px 10px 10px 10px;
-	font-family: sans-serif;
+/*
+** The reason to give three fonts because of the browser finds that any of the fonts 
+** is not supported it must have alternatives.  Always put the default like sans-serif
+** to the last so that the browser has one alternative to fall back and interpret what
+** it does best with the default font.
+** Fonts with multiple words must go with double quotes
+*/
+	font-family: Arial, Verdana, Geneva, sans-serif;
+	font-size: small;
 }
 
 h1 {
 	color: gray;
 	border-bottom: 1px solid black;
+	/*When I checked in IE, the h1 size was already 2em*/
+	font-size: 1.7em
 }
 
 blockquote {
@@ -17,10 +27,15 @@ blockquote {
 	border: 1px solid gray;
 	color: maroon;
 	font-size: 90%;
+	font-style: italic;
 }
 
 p {
 	text-align: justify;
+}
+
+address {
+	font-family: serif;
 }
 
 /*
@@ -37,6 +52,6 @@ blockquote.evilworld {
 	background-color: red;
 }
 
-address {
-	font-family: serif;
+h4.date {
+	text-decoration: underline;
 }
