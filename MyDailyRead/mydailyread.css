@@ -1,0 +1,8 @@
+/*
+** This stylesheet is specific for styles that are required mydailyread.html
+** DO NOT INCLUDE OTHER STYLES HERE
+*/
+
+h4.date {
+	text-decoration: underline;
+}

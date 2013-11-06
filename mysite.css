@@ -13,7 +13,7 @@ body {
 */
 	font-family: Arial, Verdana, Geneva, sans-serif;
 	font-size: small;
-	line-height: 1.5em;
+    line-height: 1.5em;
 }
 
 h1 {
@@ -24,11 +24,13 @@ h1 {
 }
 
 blockquote {
-	background-color: yellow;
-	border: 1px dashed white;
-	color: maroon;
-	font-size: 90%;
+	background-color: #a7cece;
+    border: 1px dashed white;
+	color: #222222;
+	font-size: 110%;
+	font-family: "Times New Roman", serif;
 	font-style: italic;
+	padding-left: 20px;
 }
 
 p {
@@ -48,11 +50,8 @@ address {
 ** If there are many elements with class evilworld, we can just declare it as .evilworld
 ** This will ensure that the styles are applied to all the elements that are under the class
 */
-blockquote.evilworld {
-	color: yellow;
-	background-color: red;
-}
 
-h4.date {
-	text-decoration: underline;
+.disclaimer {
+	font-style: italic;
+	font-family: "Times New Roman", serif;
 }
