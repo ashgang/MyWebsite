@@ -3,6 +3,29 @@
 ** DO NOT INCLUDE OTHER STYLES HERE
 */
 
-h4.date {
+h3.date {
 	text-decoration: underline;
+	text-align: center;
 }
+
+.DailyReadCatbyDate {
+	background-color: #fff140;
+	border-width: 1px;
+	border-style: dashed;
+	border-color: #a69900;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+}
+
+/*
+.CorresImg {
+	width: 200px;
+}
+
+.ImgDescription {
+	padding-right: 40%;
+}
+*/
