@@ -16,11 +16,23 @@ body {
     line-height: 1.5em;
 }
 
-h1 {
+/*
+** Styling the WONKY MIND heading, also includes the styling for all the pages that has
+** this heading as links
+*/
+h1#wonkymind {
 	color: gray;
 	border-bottom: 1px solid black;
 	/*When I checked in IE, the h1 size was already 2em*/
 	font-size: 1.7em
+}
+
+h1#wonkymind a {
+	color: gray;
+}
+
+h1#wonkymind a:hover {
+	color: black;
 }
 
 blockquote {
@@ -50,8 +62,9 @@ address {
 ** If there are many elements with class evilworld, we can just declare it as .evilworld
 ** This will ensure that the styles are applied to all the elements that are under the class
 */
-
-.disclaimer {
-	font-style: italic;
-	font-family: "Times New Roman", serif;
+.footer {
+	font-size: 90%;
+	text-align: center;
+	line-height: normal;
+	margin-top: 30px;
 }

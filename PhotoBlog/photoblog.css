@@ -2,3 +2,7 @@
 ** This stylesheet is specific for styles that are required photoblog.html
 ** DO NOT INCLUDE OTHER STYLES HERE
 */
+
+.backtotop {
+	float: right;
+}
