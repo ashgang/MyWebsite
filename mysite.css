@@ -16,25 +16,6 @@ body {
     line-height: 1.5em;
 }
 
-/*
-** Styling the WONKY MIND heading, also includes the styling for all the pages that has
-** this heading as links
-*/
-h1#wonkymind {
-	color: gray;
-	border-bottom: 1px solid black;
-	/*When I checked in IE, the h1 size was already 2em*/
-	font-size: 1.7em
-}
-
-h1#wonkymind a {
-	color: gray;
-}
-
-h1#wonkymind a:hover {
-	color: black;
-}
-
 blockquote {
 	background-color: #a7cece;
     border: 1px dashed white;
@@ -62,9 +43,37 @@ address {
 ** If there are many elements with class evilworld, we can just declare it as .evilworld
 ** This will ensure that the styles are applied to all the elements that are under the class
 */
+
 .footer {
 	font-size: 90%;
 	text-align: center;
 	line-height: normal;
 	margin-top: 30px;
+}
+
+/*
+** Styling the WONKY MIND heading, also includes the styling for all the pages that has
+** this heading as links
+*/
+h1#wonkymind {
+	color: gray;
+	border-bottom: 1px solid black;
+	/*When I checked in IE, the h1 size was already 2em*/
+	font-size: 1.7em
+}
+
+/*
+** This says only the H1 heading that comes under <a> element and which is id tagged as 
+** wonkymind will be changed to blue when it changes it state to hover
+*/
+h1#wonkymind a {
+	color: gray;
+}
+
+/*
+** This is a very good example for Pseudo-Class
+*/
+h1#wonkymind a:hover {
+/*	color: #f88396;*/
+	color: black;
 }
