@@ -3,6 +3,10 @@
 ** DO NOT INCLUDE OTHER STYLES HERE
 */
 
+body {
+	border: 0px;
+}
+
 h3.date {
 	text-decoration: underline;
 	text-align: center;
@@ -10,14 +14,15 @@ h3.date {
 
 .DailyReadCatbyDate {
 	background-color: #fff140;
-	border-width: 1px;
+/*	border-width: 1px;
 	border-style: dashed;
-	border-color: #a69900;
+	border-color: #a69900;*/
 	margin-left: 10px;
 	margin-right: 10px;
 	padding-left: 10px;
 	padding-right: 10px;
 	padding-bottom: 10px;
+	padding-top: 5px;
 }
 
 .backtotop {
@@ -40,6 +45,7 @@ div#disclaimer p {
 /*
 .CorresImg {
 	width: 200px;
+	float: right;
 }
 
 .ImgDescription {

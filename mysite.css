@@ -1,5 +1,5 @@
 body {
-/*	background-color: #d2b48c;*/
+	background-color: #e5e789;
 	margin-left: 10%;
 	margin-right: 10%;
 	border: 1px dotted grey;
@@ -46,7 +46,6 @@ address {
 
 .footer {
 	font-size: 90%;
-	text-align: center;
 	line-height: normal;
 	margin-top: 30px;
 }
@@ -68,6 +67,7 @@ h1#wonkymind {
 */
 h1#wonkymind a {
 	color: gray;
+	text-decoration: none;
 }
 
 /*
@@ -76,4 +76,25 @@ h1#wonkymind a {
 h1#wonkymind a:hover {
 /*	color: #f88396;*/
 	color: black;
+}
+
+/*
+** This is for styling the footer of the home page
+*/
+div.footer  p{
+	text-align: center;
+	text-decoration: none;
+}
+
+/*
+** This is to freeze the page with the allcontent div
+*/
+#allcontent {
+	width: 1000px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding: 10px;
+	background-color: #9b9b00;/*#675c17;*/
+	margin-left: auto;
+	margin-right: auto;
 }
