@@ -23,6 +23,7 @@ h3.date {
 	padding-right: 10px;
 	padding-bottom: 10px;
 	padding-top: 5px;
+	overflow: hidden;
 }
 
 .backtotop {
@@ -42,12 +43,16 @@ div#disclaimer p {
 	text-align: center;
 }
 
-/*
 .CorresImg {
-	width: 200px;
-	float: right;
+	float: left;
+	margin-right: 10px;
 }
 
+#StoryEndLine  p{
+	clear: left;
+	clear: right;
+}
+/*
 .ImgDescription {
 	padding-right: 40%;
 }

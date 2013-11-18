@@ -55,7 +55,7 @@ address {
 ** this heading as links
 */
 h1#wonkymind {
-	color: gray;
+	color: black;
 	border-bottom: 1px solid black;
 	/*When I checked in IE, the h1 size was already 2em*/
 	font-size: 1.7em
@@ -66,7 +66,7 @@ h1#wonkymind {
 ** wonkymind will be changed to blue when it changes it state to hover
 */
 h1#wonkymind a {
-	color: gray;
+	color: black;
 	text-decoration: none;
 }
 
@@ -75,7 +75,7 @@ h1#wonkymind a {
 */
 h1#wonkymind a:hover {
 /*	color: #f88396;*/
-	color: black;
+	color: gray;
 }
 
 /*
@@ -97,4 +97,15 @@ div.footer  p{
 	background-color: #9b9b00;/*#675c17;*/
 	margin-left: auto;
 	margin-right: auto;
+}
+
+/*
+** This is to remove the border from the clickable my back image
+*/
+#MyBack img {
+	border: none;
+}
+
+#MyBack a {
+	border: none;
 }
