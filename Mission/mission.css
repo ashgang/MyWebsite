@@ -2,6 +2,9 @@
 ** This stylesheet is specific for styles that are required mission.html
 ** DO NOT INCLUDE OTHER STYLES HERE
 */
+body {
+	border: 0px;
+}
 
 #evilquote {
 	background-color: black;
@@ -15,7 +18,7 @@
 }
 
 .goodquote {
-	background-image: url(Images/littlesmilingangel.jpg);
+/*	background-image: url(Images/littlesmilingangel.jpg);*/
 	background-repeat: no-repeat;
 	background-position: top right;
 }

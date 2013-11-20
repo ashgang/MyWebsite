@@ -5,13 +5,38 @@
 <title>Wonky Mind</title>
 <link type="text/css" rel="stylesheet" href="../mysite.css" />
 <link type="text/css" rel="stylesheet" href="contactme.css" />
+<script type="text/javascript">
+function pgLoadEnquireName() {
+	var confAnswer = confirm('Hello! Depressed soul, may I know your name?');
+	if (confAnswer) //If yes ask for name
+	{
+		var yourName = prompt("Enter your name here:");
+		if(yourName)
+		{
+			alert("Its good to meet you, " + yourName + ".");
+		}
+		else
+		{
+			alert('You don\'t provide your name! you don\'t deserve to contact me either!');
+			window.top.location.href="../index.html";
+		}
+	}
+	else //If no he does not deserve to contace me. So go back home.
+	{
+		alert('You don\'t provide your name! you don\'t deserve to contact me either!');
+		window.top.location.href="../index.html";
+	}
+}
+</script>
 </head>
-<body onload="confirm('Hello! Depressed soul, may I know your name?');">
+<body onload="pgLoadEnquireName();">
 <!-- This comes in every page -->
 <h1 id="wonkymind"><a href="../index.html" id="BackToWonkyMindContactMe">Wonky Mind</a></h1>
 
+
 <p>
-Enter your e-mail ID and your message.  I'll get back to you.  Don't worry your e-mail ID will for sure be passed to spammers! and possibly your PC will there after be used as a bot :P
+Its good to meet you.  Enter your e-mail ID and your message.  I'll get back to you.<br>
+Don't worry your e-mail ID will for sure be passed to spammers! and possibly your PC will there after be used as a bot :P
 </p>
 <fieldset>
 <legend>Contact Me</legend>
@@ -29,10 +54,13 @@ Your Message<br>
 </form>
 </fieldset>
 
+
 <p>
 <a href="../index.html">Home</a>
 <span class="backtotop"><a href="contactme.html#BackToWonkyMindContactMe">Back to top</a></span>
 </p>
 
+
 </body>
 </html>
+
