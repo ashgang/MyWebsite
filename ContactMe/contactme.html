@@ -6,30 +6,35 @@
 <link type="text/css" rel="stylesheet" href="../mysite.css" />
 <link type="text/css" rel="stylesheet" href="contactme.css" />
 <script type="text/javascript">
-function pgLoadEnquireName() {
-	var confAnswer = confirm('Hello! Depressed soul, may I know your name?');
-	if (confAnswer) //If yes ask for name
+var GetLostErrMsg = "You don\'t provide your name! you don\'t deserve to contact me either!";
+function ValidateNameNMailID() {
+	if (document.ContactMe.name.value) //If yes ask for name
 	{
-		var yourName = prompt("Enter your name here:");
-		if(yourName)
+		//var yourName = alert("Your name is " + document.ContactMe.name.value);
+		if(isNaN(document.ContactMe.name.value))
 		{
-			alert("Its good to meet you, " + yourName + ".");
+			alert("Its good to meet you, " + document.ContactMe.name.value + "!");
 		}
 		else
 		{
-			alert('You don\'t provide your name! you don\'t deserve to contact me either!');
+			alert(GetLostErrMsg);
 			window.top.location.href="../index.html";
 		}
 	}
 	else //If no he does not deserve to contace me. So go back home.
 	{
-		alert('You don\'t provide your name! you don\'t deserve to contact me either!');
+		alert(GetLostErrMsg);
 		window.top.location.href="../index.html";
 	}
 }
+
+function pgLoadGreetings()
+{
+	alert("Hello depressed soul, please fill in the form to contact me!");
+}
 </script>
 </head>
-<body onload="pgLoadEnquireName();">
+<body onload="pgLoadGreetings();">
 <!-- This comes in every page -->
 <h1 id="wonkymind"><a href="../index.html" id="BackToWonkyMindContactMe">Wonky Mind</a></h1>
 
@@ -40,17 +45,26 @@ Don't worry your e-mail ID will for sure be passed to spammers! and possibly you
 </p>
 <fieldset>
 <legend>Contact Me</legend>
-<form>
-<p>
-E-mail ID<br>
-<input type="text" name="mailID" /> <br>
-Your Message<br>
-<textarea name="YourMessage" rows="10" cols="50">Hi Wonky Mind,
-</textarea>
-</p>
-<p>
-<input type="submit" name="SendMail" value="Submit"/>
-</p>
+<form name="ContactMe" method="post" id="contactme">
+<table>
+<tr>
+<th class="ItemName">Name:</th>
+<td><input type="text" name="name" onblur="ValidateNameNMailID()"/> </td>
+</tr>
+<tr>
+<th class="ItemName">E-mail ID:</th>
+<td><input type="text" name="mailID" /> </td>
+</tr>
+<tr>
+<th class="ItemName">Your Message:</th>
+<td><textarea name="YourMessage" rows="10" cols="50">Hi Wonky Mind,
+</textarea></td>
+</tr>
+<tr>
+<th></th>
+<td><input type="submit" name="SendMail" value="Submit" onclick="ValidateNameNMailID()"/></td>
+</tr>
+</table>
 </form>
 </fieldset>
 
