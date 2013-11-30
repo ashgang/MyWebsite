@@ -1,0 +1,69 @@
+/*
+** This stylesheet is specific for styles that are required mydailyread.html
+** DO NOT INCLUDE OTHER STYLES HERE
+*/
+
+body {
+	border: 0px;
+}
+
+h3.date {
+	text-decoration: underline;
+	text-align: center;
+}
+
+.DailyReadCatbyDate {
+	background-color: #fff140;
+/*	border-width: 1px;
+	border-style: dashed;
+	border-color: #a69900;*/
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-top: 5px;
+	overflow: hidden;
+}
+
+.backtotop {
+	float: right;
+}
+
+/*
+** Styling for the disclaimer
+*/
+#disclaimer {
+	font-size: 90%;
+	font-style: italic;
+	font-family: "Times New Roman", serif;
+}
+
+div#disclaimer p {
+	text-align: center;
+}
+
+.CorresImg {
+	float: left;
+	margin-right: 10px;
+}
+
+#StoryEndLine  p{
+	clear: left;
+	clear: right;
+}
+
+.ImgCaption {
+	font-style: italic;
+	font-size: 90%;
+	text-align: center;
+}
+
+.ImgFigure {
+	margin: 5px;
+}
+/*
+.ImgDescription {
+	padding-right: 40%;
+}
+*/

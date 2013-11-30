@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wonky Mind</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../mysite.css">
+<link rel="stylesheet" href="contactme.css">
+<script src="contactme.js"></script>
+</head>
+<body>
+<!-- This comes in every page -->
+<h1 id="wonkymind"><a href="../index.html" id="BackToWonkyMindContactMe">Wonky Mind</a></h1>
+
+
+<p>
+Its good to meet you.  Enter your e-mail ID and your message.  I'll get back to you.<br>
+Don't worry your e-mail ID will for sure be passed to spammers! and possibly your PC will there after be used as a bot :P
+</p>
+<fieldset>
+<legend>Contact Me</legend>
+<form name="ContactMe" method="post" id="contactme">
+<table>
+<tr>
+<th class="ItemName">Name:</th>
+<td><input type="text" name="name" onblur="ValidateNameNMailID()"/> </td>
+</tr>
+<tr>
+<th class="ItemName">E-mail ID:</th>
+<td><input type="text" name="mailID" /> </td>
+</tr>
+<tr>
+<th class="ItemName">Your Message:</th>
+<td><textarea name="YourMessage" rows="10" cols="50">Hi Wonky Mind,
+</textarea></td>
+</tr>
+<tr>
+<th></th>
+<td><input type="submit" name="SendMail" value="Submit" onclick="ValidateNameNMailID()"/></td>
+</tr>
+</table>
+</form>
+</fieldset>
+
+
+<p>
+<a href="../index.html">Home</a>
+<span class="backtotop"><a href="contactme.html#BackToWonkyMindContactMe">Back to top</a></span>
+</p>
+
+
+</body>
+</html>
+

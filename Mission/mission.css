@@ -1,0 +1,28 @@
+/*
+** This stylesheet is specific for styles that are required mission.html
+** DO NOT INCLUDE OTHER STYLES HERE
+*/
+body {
+	border: 0px;
+}
+
+#evilquote {
+	background-color: black;
+	color: red;
+	background-image: url(Images/devilblackbackground.jpg);
+	background-repeat: no-repeat;
+	background-position: top right;
+	border-style: dashed;
+	border-width: 2px;
+	border-color: white;
+}
+
+.goodquote {
+/*	background-image: url(Images/littlesmilingangel.jpg);*/
+	background-repeat: no-repeat;
+	background-position: top right;
+}
+
+.backtotop {
+	float: right;
+}
