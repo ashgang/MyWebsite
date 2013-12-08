@@ -3,6 +3,25 @@
 ** DO NOT INCLUDE OTHER STYLES HERE
 */
 
+body {
+	border: 0px;
+}
+
 .backtotop {
 	float: right;
+}
+
+#phototable {
+	width: 1100px;
+/*	padding-top: 5px;
+	padding-bottom: 5px;*/
+	padding: 10px;
+	background-color: #fff140;/*#b7d694;*/
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+table#phototable  caption {
+	font-weight: bold;
 }
