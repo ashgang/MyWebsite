@@ -5,9 +5,14 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="../mysite.css">
 <link rel="stylesheet" href="photoblog.css">
+<!-- Including JQuery -->
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<!-- Including JQuery overlay -->
+<script src="http://vast-eng.github.io/jquery-popup-overlay/jquery.popupoverlay.js"></script>
 <script src="photoblog.js"></script>
 </head>
 <body>
+<div id="fade" class="black_overlay"></div>
 <div id="allcontent">
 <!-- This comes in every page -->
 <h1 id="wonkymind"><a href="../index.html" id="BackToWonkyMindPhotoBlog">Wonky Mind</a></h1>
@@ -29,7 +34,23 @@ Add the song you like and listen while you are browsing through the photo's
 <table id="phototable">
 <caption> Some of my photo collections </caption>
 <tr>
-<td><a href="Images/Img1.jpg" title="Star fish, taken in Singapore aquarium"><img src="Thumbnails\Img1T.jpg" height="150" width="200"></a></td>
+<td><!--<a href="Images/Img1.jpg" title="Star fish, taken in Singapore aquarium">-->
+<img src="Thumbnails\Img1T.jpg" height="150" width="200" onclick="showPopup();">
+    <div id="content" class="white_content">
+        <table width="100%" border="0" cellpadding="5">
+            <tr>
+                <td valign="top" align="right">
+                    <input type="button" onclick="closePopup()" value="X" title="close" />
+                </td>
+            </tr>
+            <tr>
+                <td valign="top" style="text-align: justify">
+				<img src="Images/Img1.jpg">
+                </td>
+            </tr>
+        </table>
+    </div>
+</td>
 <td><img src="Thumbnails\Img2T.jpg" height="150" width="200"></td>
 <td><img src="Thumbnails\Img3T.jpg" height="150" width="200"></td>
 <td><img src="Thumbnails\Img4T.jpg" height="150" width="200"></td>
