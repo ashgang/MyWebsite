@@ -3,13 +3,16 @@
 <head>
 <title>Wonky Mind</title>
 <meta charset="utf-8">
+<!-- My Includes -->
 <link rel="stylesheet" href="../mysite.css">
 <link rel="stylesheet" href="photoblog.css">
-<!-- Including JQuery -->
-<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-<!-- Including JQuery overlay -->
-<script src="http://vast-eng.github.io/jquery-popup-overlay/jquery.popupoverlay.js"></script>
 <script src="photoblog.js"></script>
+
+<!-- Including lightbox -->
+<script src="lightbox/js/jquery-1.10.2.min.js"></script>
+<script src="lightbox/js/lightbox-2.6.min.js"></script>
+<link href="lightbox/css/lightbox.css" rel="stylesheet">
+
 </head>
 <body>
 <div id="fade" class="black_overlay"></div>
@@ -34,51 +37,77 @@ Add the song you like and listen while you are browsing through the photo's
 <table id="phototable">
 <caption> Some of my photo collections </caption>
 <tr>
-<td><!--<a href="Images/Img1.jpg" title="Star fish, taken in Singapore aquarium">-->
-<img src="Thumbnails\Img1T.jpg" height="150" width="200" onclick="showPopup();">
-    <div id="content" class="white_content">
-        <table width="100%" border="0" cellpadding="5">
-            <tr>
-                <td valign="top" align="right">
-                    <input type="button" onclick="closePopup()" value="X" title="close" />
-                </td>
-            </tr>
-            <tr>
-                <td valign="top" style="text-align: justify">
-				<img src="Images/Img1.jpg">
-                </td>
-            </tr>
-        </table>
-    </div>
+<td>
+<a href="Images\Img1.jpg" data-lightbox="MyImages" title="Star fish in Singapore aquarium"><img src="Thumbnails\Img1T.jpg" height="150" width="200"></a>
 </td>
-<td><img src="Thumbnails\Img2T.jpg" height="150" width="200"></td>
-<td><img src="Thumbnails\Img3T.jpg" height="150" width="200"></td>
-<td><img src="Thumbnails\Img4T.jpg" height="150" width="200"></td>
-<td><img src="Thumbnails\Img5T.jpg" height="150" width="200"></td>
+<td>
+<a href="Images\Img2.jpg" data-lightbox="MyImages" title="Jelly fish"><img src="Thumbnails\Img2T.jpg" height="150" width="200"></a>
+</td>
+<td>
+<a href="Images\Img3.jpg" data-lightbox="MyImages" title="Jelly fish"><img src="Thumbnails\Img3T.jpg" height="150" width="200"></a>
+</td>
+<td>
+<a href="Images\Img4.jpg" data-lightbox="MyImages" title="Jelly fish"><img src="Thumbnails\Img4T.jpg" height="150" width="200"></a>
+</td>
+<td>
+<a href="Images\Img5.jpg" data-lightbox="MyImages" title="Song of the Seas, Sentosa"><img src="Thumbnails\Img5T.jpg" height="150" width="200"></a>
+</td>
 </tr>
 <tr>
-<td><img src="Thumbnails\Img6T.jpg" height="150" width="200"></td>
-<td><img src="Thumbnails\Img7T.jpg" height="150" width="200"></td>
-<td><img src="Thumbnails\Img8T.jpg" height="150" width="200"></td>
-<td><img src="Thumbnails\Img9T.jpg" height="150" width="200"></td>
-<td><img src="Thumbnails\Img10T.jpg" height="150" width="200"></td>
+<td>
+<a href="Images\Img6.jpg" data-lightbox="MyImages" title="Starbucks"><img src="Thumbnails\Img6T.jpg" height="150" width="200"></a>
+</td>
+<td>
+<a href="Images\Img7.jpg" data-lightbox="MyImages" title="I would rather spend one lifetime with you, than face all the ages of this world alone"><img src="Thumbnails\Img7T.jpg" height="150" width="200"></a>
+</td>
+<td>
+<a href="Images\Img8.jpg" data-lightbox="MyImages" title="Swissotel, Singapore"><img src="Thumbnails\Img8T.jpg" height="150" width="200"></a>
+</td>
+<td>
+<a href="Images\Img9.jpg" data-lightbox="MyImages" title="CCK"><img src="Thumbnails\Img9T.jpg" height="150" width="200"></a>
+</td>
+<td>
+<a href="Images\Img10.jpg" data-lightbox="MyImages" title="CCK"><img src="Thumbnails\Img10T.jpg" height="150" width="200"></a>
+</td>
 </tr>
 <tr>
-<td><img src="Thumbnails\Img11T.jpg" height="150" width="200"></td>
-<td><img src="Thumbnails\Img12T.jpg" height="150" width="200"></td>
-<td><img src="Thumbnails\Img13T.jpg" height="150" width="200"></td>
-<td><img src="Thumbnails\Img14T.jpg" height="150" width="200"></td>
-<td><img src="Thumbnails\Img15T.jpg" height="150" width="200"></td>
+<td>
+<a href="Images\Img11.jpg" data-lightbox="MyImages" title="CCK"><img src="Thumbnails\Img11T.jpg" height="150" width="200"></a>
+</td>
+<td>
+<a href="Images\Img12.jpg" data-lightbox="MyImages" title="CCK"><img src="Thumbnails\Img12T.jpg" height="150" width="200"></a>
+</td>
+<td>
+<a href="Images\Img13.jpg" data-lightbox="MyImages" title="Flower"><img src="Thumbnails\Img13T.jpg" height="150" width="200"></a>
+</td>
+<td>
+<a href="Images\Img14.jpg" data-lightbox="MyImages" title="Otter, Singapore Zoo"><img src="Thumbnails\Img14T.jpg" height="150" width="200"></a>
+</td>
+<td>
+<a href="Images\Img15.jpg" data-lightbox="MyImages" title="Thinking Monkey, Singapore Zoo"><img src="Thumbnails\Img15T.jpg" height="150" width="200"></a>
+</td>
 </tr>
 <tr>
-<td><img src="Thumbnails\Img16T.jpg" height="150" width="200"></td>
-<td><img src="Thumbnails\Img17T.jpg" height="150" width="200"></td>
-<td><img src="Thumbnails\Img18T.jpg" height="150" width="200"></td>
-<td><img src="Thumbnails\Img19T.jpg" height="150" width="200"></td>
-<td><img src="Thumbnails\Img20T.jpg" height="150" width="200"></td>
+<td>
+<a href="Images\Img16.jpg" data-lightbox="MyImages" title="Playing Monkeys, Singapore Zoo"><img src="Thumbnails\Img16T.jpg" height="150" width="200"></a>
+</td>
+<td>
+<a href="Images\Img17.jpg" data-lightbox="MyImages" title="Green Python, Singapore Zoo"><img src="Thumbnails\Img17T.jpg" height="150" width="200"></a>
+</td>
+<td>
+<a href="Images\Img18.jpg" data-lightbox="MyImages" title="Frog, Singapore Zoo"><img src="Thumbnails\Img18T.jpg" height="150" width="200"></a>
+</td>
+<td>
+<a href="Images\Img19.jpg" data-lightbox="MyImages" title="Duck, Singapore Zoo"><img src="Thumbnails\Img19T.jpg" height="150" width="200"></a>
+</td>
+<td>
+<a href="Images\Img20.jpg" data-lightbox="MyImages" title="Butterfly, Singapore Zoo"><img src="Thumbnails\Img20T.jpg" height="150" width="200"></a>
+</td>
 </tr>
 <tr>
-<td><img src="Thumbnails\Img21T.jpg" height="150" width="200"></td>
+<td>
+<a href="Images\Img21.jpg" data-lightbox="MyImages" title="Guess who! Singapore Zoo"><img src="Thumbnails\Img21T.jpg" height="150" width="200"></a>
+</td>
 </tr>
 </tr>
 </table>
