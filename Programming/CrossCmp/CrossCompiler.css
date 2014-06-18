@@ -1,0 +1,16 @@
+.PreviousPage {
+	float: right;
+}
+
+/*
+** Styling for the disclaimer
+*/
+#disclaimer {
+	font-size: 90%;
+	font-style: italic;
+	font-family: "Times New Roman", serif;
+}
+
+div#disclaimer p {
+	text-align: center;
+}

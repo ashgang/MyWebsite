@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CROSS_COMPILE</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../mysite.css">
+<link rel="stylesheet" href="CrossCompiler.css">
+<link rel="stylesheet" href="../programming.css">
+</head>
+<body>
+<div id="CrossCompilerPage">
+<h1 id="wonkymind"><a href="../programming.html" id="BackToWonkyCrossCompiler">CROSS_COMPILE</a></h1>
+<p>
+Below are the steps I used to install the cross compiler.<br>
+<ol>
+<li>Download the cross compiler: <br> >> wget -c https://releases.linaro.org/14.04/components/toolchain/binaries/gcc-linaro-arm-linux-gnueabihf-4.8-2014.04_linux.tar.xz</li>
+<li>Unzip it: <br> >> tar xf gcc-linaro-arm-linux-gnueabihf-4.8-2014.04_linux.tar.xz</li>
+<li>export the CC env variable, it will be used in all compilations: <br> >> export CC=`pwd`/gcc-linaro-arm-linux-gnueabihf-4.8-2014.04_linux/bin/arm-linux-gnueabihf-</li>
+<li>To test it: <br>>> ${CC}gcc --version<br>
+This will print the version of the cross compiler.
+<li>As an useful additional thing, you can set and export the CC and CROSS_COMPILE environment variables in .bashrc.  So whenever you start bash the variables are automatically set.  You can echo an warning that reads: "CC and CROSS_COMPILE are set to so and so...." which is echoed when bash starts up.  This will remind the user of the custom environment variables.
+</p>
+
+<p>
+<a href="../../index.html">Home</a>
+<span class="PreviousPage"><a href="../programming.html">Previous Page</a></span>
+</p>
+
+</div>
+</body>
+</html>

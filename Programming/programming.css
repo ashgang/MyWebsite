@@ -1,0 +1,57 @@
+/*
+** This stylesheet is specific for styles that are required programming.html
+** DO NOT INCLUDE OTHER STYLES HERE
+*/
+
+body {
+	border: 0px;
+}
+
+body {
+	background-color: #e5e789;
+	margin-left: 10%;
+	margin-right: 10%;
+	border: 1px dotted grey;
+	padding: 10px 10px 10px 10px;
+/*
+** The reason to give three fonts because of the browser finds that any of the fonts 
+** is not supported it must have alternatives.  Always put the default like sans-serif
+** to the last so that the browser has one alternative to fall back and interpret what
+** it does best with the default font.
+** Fonts with multiple words must go with double quotes
+*/
+	font-family: Arial, Verdana, Geneva, sans-serif;
+	font-size: small;
+    line-height: 1.5em;
+}
+
+.GettingUboot {
+	background-color: #fff140;
+/*	border-width: 1px;
+	border-style: dashed;
+	border-color: #a69900;*/
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-top: 5px;
+	overflow: hidden;
+}
+
+.backtotop {
+	float: right;
+}
+
+/*
+** Styling for the disclaimer
+*/
+#disclaimer {
+	font-size: 90%;
+	font-style: italic;
+	font-family: "Times New Roman", serif;
+}
+
+div#disclaimer p {
+	text-align: center;
+}
