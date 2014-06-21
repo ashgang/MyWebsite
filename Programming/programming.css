@@ -55,3 +55,7 @@ body {
 div#disclaimer p {
 	text-align: center;
 }
+
+.PreviousPage {
+	float: right;
+}

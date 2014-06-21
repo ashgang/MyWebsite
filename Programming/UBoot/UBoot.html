@@ -11,9 +11,72 @@
 <div id="CrossCompilerPage">
 <h1 id="wonkymind"><a href="../programming.html" id="BackToWonkyUBoot">U-Boot</a></h1>
 
+<p>
 Below is the step by step procedure I did to get u-boot running:<br>
-1. Download the wandboard u-boot source code from here:
-git clone git://git.denx.de/u-boot.git
+<ol>
+<li> Download the wandboard u-boot source code from here: <br>
+>> git clone git://git.denx.de/u-boot.git </li>
+>> git checkout v2014.04 -b tmp
+<li> Move into u-boot directory: <br>
+>> cd u-boot </li>
+<li> Download the u-boot patch from eewiki: <br>
+>> wget -c https://raw.github.com/eewiki/u-boot-patches/master/v2014.04/0001-wandboard-uEnv.txt-bootz-n-fixes.patch </li>
+<li> Apply the patch to the downloaded u-boot code: <br>
+>> patch -p1 < 0001-wandboard-uEnv.txt-bootz-n-fixes.patch </li>
+<li> Now it comes to compilation of u-boot.  Do a clean first before configuring and compiling. <br>
+>> make ARCH=arm CROSS_COMPILE=${CC} distclean <br>
+In my case, I will only issue this: <br>
+>> make distclean <br>
+This is because, I usually have ARCH=arm and CROSS_COMPILE=${CC} variables set in .bashrc.  If for some  reason this has to be changed, it can be overridden in the corresponding Make command line.  However thats a very rare occurrence in my case, since I usually compile only for wandboard. :) </li>
+<li> Now configure u-boot for wandboard dual (dual is what I have): <br>
+>> make ARCH=arm CROSS_COMPILE=${CC} wandboard_dl_config <br>
+This is how I issue: <br>
+>> make wandboard_dl_config <br>
+The configuration for quad is wandboard_quad_config and for solo is wandboard_solo_config.  Alternatively you can find this in  config directory in the includes, for the configuration file of your board. </li>
+<li> Now build u-boot: <br>
+>> make ARCH=arm CROSS_COMPILE=${CC} <br>
+This is how I issue: <br>
+>> make </li>
+<li> If you feel like changing anything, most of the configuration will be in the wandboard.h file.  I usually change the u-boot prompt and delay, which is CONFIG_SYS_PROMPT, its set to this: <br>
+#define CONFIG_SYS_PROMPT "Wonky's Wand >>" <br>
+#define CONFIG_BOOT_DELAY 3 </li>
+<li> And of course, this has to be done before compilation. </li>
+<li> In the u-boot directory, you will find u-boot.imx which is the u-boot image you just prepared.  That is it, you have u-boot image ready for your wandboard.</li>
+<li> Use this command to flash it to SD card:<br>
+>> sudo dd of=/dev/sdb if=./u-boot.imx bs=1k seek=1; sync <br>
+Use dd command carefully, else you will screw up your host Linux installation.  So a brief explanation of the command is here: <br>
+of - output file, this is the SD card name from the /dev directory, pick it up very carefully. <br>
+if - input file<br>
+bs - bytes to read at a time.<br>
+seek - start writing 1k from the beginning of the SD card. <br>
+As additional info, if you read the TRM of iMX6, it will say if internal boot is selected and when boot from SD card is provided as boot option, it will copy 4 KB from the SD card to internal memory, the IVT and DCD should compulsorily be in this 4 KB data, after this the whole image is copied to RAM and booting proceeds.  Do not worry, your u-boot will take care of everything.
+</ol>
+</p>
+
+<h3>List of commands</h3>
+<p>
+<h5>Downloading u-boot</h5>
+<ol>
+<li>git clone git://git.denx.de/u-boot.git </li>
+<li>git checkout v2014.04 -b tmp</li>
+<li>cd u-boot</li>
+<li>wget -c https://raw.github.com/eewiki/u-boot-patches/master/v2014.04/0001-wandboard-uEnv.txt-bootz-n-fixes.patch</li>
+<li>patch -p1 < 0001-wandboard-uEnv.txt-bootz-n-fixes.patch</li>
+</ol>
+</p>
+<p>
+<h5>Compiling u-boot</h5>
+<ol>
+<li>make ARCH=arm CROSS_COMPILE=${CC} distclean</li>
+<li>make ARCH=arm CROSS_COMPILE=${CC} wandboard_dl_config</li>
+<li>make ARCH=arm CROSS_COMPILE=${CC}</li>
+</ol>
+</p>
+
+<p>
+<a href="../../index.html">Home</a>
+<span class="PreviousPage"><a href="../programming.html">Previous Page</a></span>
+</p>
 
 </div>
 </body>

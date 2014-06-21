@@ -17,8 +17,25 @@ Below are the steps I used to install the cross compiler.<br>
 <li>Unzip it: <br> >> tar xf gcc-linaro-arm-linux-gnueabihf-4.8-2014.04_linux.tar.xz</li>
 <li>export the CC env variable, it will be used in all compilations: <br> >> export CC=`pwd`/gcc-linaro-arm-linux-gnueabihf-4.8-2014.04_linux/bin/arm-linux-gnueabihf-</li>
 <li>To test it: <br>>> ${CC}gcc --version<br>
-This will print the version of the cross compiler.
-<li>As an useful additional thing, you can set and export the CC and CROSS_COMPILE environment variables in .bashrc.  So whenever you start bash the variables are automatically set.  You can echo an warning that reads: "CC and CROSS_COMPILE are set to so and so...." which is echoed when bash starts up.  This will remind the user of the custom environment variables.
+This will print the version of the cross compiler. </li>
+<li>As an useful additional thing, you can set and export the CC and CROSS_COMPILE environment variables in .bashrc.  So whenever you start bash the variables are automatically set.  You can echo an warning that reads: "CC and CROSS_COMPILE are set to so and so...." which is echoed when bash starts up.  This will remind the user of the custom environment variables.  Below are images of my bashrc inclusions and the echoed warning when bash is started:
+<p>
+<img src="Images/BashInclusions.png">
+<img src="Images/CC&ARCHWarnMsg.jpg">
+</p>
+<li>As you may see from the above image, I have placed the cross compilers in the /usr/bin directory.  Its basically your personnel choice (Try not to copy it to an alien mother-ship server! they know it then its your funeral! :P)
+</li>
+</ol>
+</p>
+
+<h3>List of commands</h3>
+<p>
+<ol>
+<li>wget -c https://releases.linaro.org/14.04/components/toolchain/binaries/gcc-linaro-arm-linux-gnueabihf-4.8-2014.04_linux.tar.xz </li>
+<li>tar xf gcc-linaro-arm-linux-gnueabihf-4.8-2014.04_linux.tar.xz</li>
+<li>export CC=`pwd`/gcc-linaro-arm-linux-gnueabihf-4.8-2014.04_linux/bin/arm-linux-gnueabihf-</li>
+<li>${CC}gcc --version</li>
+</ol>
 </p>
 
 <p>
