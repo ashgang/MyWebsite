@@ -59,3 +59,28 @@ div#disclaimer p {
 .PreviousPage {
 	float: right;
 }
+
+.HomePage {
+	float: right;
+}
+
+/*
+** Here we are resetting the blockquote to default since the setting in mysite.css is 
+** applied all over, and that we do not require here
+*/
+/*
+blockquote {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    quotes:none;
+}
+blockquote:before, blockquote:after {
+    content:'';
+    content:none;
+}
+*/

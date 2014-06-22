@@ -4,13 +4,90 @@
 <title>Busy Box</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="../../mysite.css">
-<link rel="stylesheet" href="CrossCompiler.css">
+<link rel="stylesheet" href="Busybox.css">
 <link rel="stylesheet" href="../programming.css">
 </head>
 <body>
-<div id="CrossCompilerPage">
+<div id="BusyboxPage">
 <h1 id="wonkymind"><a href="../programming.html" id="BackToWonkyBusyBox">Busy Box</a></h1>
 
+<p>
+For a long time I was stuck with U-Boot and Linux kernel.  I was happy enough to see a kernel panic, when it does not find init.  I never wanted to put a rootFS and check out.  Above all I had this very good excuse, my previous laptop that I used for initial compilation of UBoot and kernel blew up :)  Considering the fact that my love is gone now, I had to find a new gf.  After some thought, I bought a 64-bit windows 8 laptop, and unfortunately I wasn't able to install Linux.  Then came the VMWare thought, although I was never happy to work on a VMWare based Linux machine.
+</p>
+<p>
+However I never really did anything for a while.  Fortunately, in my case, I saw that there are a few people who share my interest.  And his name is Mr. X.  Mr. X was looking to buy a new board, and I shared my opinion on wandboard.  By this time wandboard guys already had a quad core board in their line-up.  And with no further thought Mr. X got himself a wandboard quad.  And in our discussion, we thought we must go further and try atleast a small rootFS.  That was the starting point of putting Busybox for rootFS.  He also shared his idea of mounting Busybox via NFS, but that would be a separate topic on how I got NFS working.  You can find Mr. X's e-mail id in the disclaimer, if you wish to ask him questions :) <br> <br>
+<b>Moral of the story:</b> Always have people around you, who share your interest.  That ensures, when you become complacent there is someone to kick your butt, and wake you up!
+</p>
+<p>
+<h3>Busybox compilation and flashing</h3>
+<ol>
+<li>mkdir busybox</li>
+<li>cd busybox</li>
+<li>Get the latest busybox tarball from here http://www.busybox.net/downloads/, and untar it to the directory <br>
+>> tar -xjvf busybox-1.22.1.tar.bz2 </li>
+<li>Move into the directory where its untarred.  In this case, it must be: <br>
+>> cd busybox-1.22.1</li>
+<li>>> make defconfig<br>
+Note that I am not setting the ARCH and CROSS_COMPILE variables, since its always set in my .bashrc.  One more advantage of doing it this way</li>
+<li>>> make</li>
+<li>>> make install</li>
+<li>After this you will find and a directory called _install which has the minimalistic file system structure</li>
+<li>Create the following directories:<br>
+>> cd _install<br>
+>> mkdir dev <br>
+>> mkdir proc <br>
+>> mkdir sys <br>
+>> mkdir -p etc/init.d <br>
+>> vim etc/inittab <br>
+copy the following:<br>
+<code>
+::sysinit:/etc/init.d/rcS <br>
+::askfirst:/bin/sh <br>
+::ctrlaltdel:/sbin/reboot <br>
+::shutdown:/sbin/swapoff -a <br>
+::shutdown:/bin/umount -a -r <br>
+::restart:/sbin/init <br>
+</code>
+</li>
+<li>Write this down in the etc/fstab: <br>
+<code>
+proc     /proc proc     defaults 0 0 <br>
+sysfs    /sys  sysfs    defaults 0 0 <br>
+devtmpfs /dev  devtmpfs defaults 0 0 <br>
+</code>
+</li>
+<li>etc/init.d/rcS must contain this, which is called from inittab <br>
+<code>
+#!/bin/sh <br>
+mount -a <br>
+</code>
+</li>
+<li>Provide execute permissions for rcS: <br>
+>> chmod +x etc/init.d/rcS <br>
+</li>
+<li>U-boot will generally load kernel from first partition and root file system from second partition.  Obviously, you can change this.  However in my case, I just created 2 partition, allowing enough space in the beginning for U-boot to reside.  I did it using GParted. </li>
+<li>Copy the contents of the _install folder to the second partition, and you are done. </li>
+<li>Insert the SD card to your wandboard, and you will still see kernel panic.  hahaha! The error will be init not found.  Feel like hitting me...  hahah! you are in front of a computer screen remember!  Anyway, with all the anxious anger mixed emotions you feel now, scratch your head and think for a while before moving to next step.</li>
+<li>At this juncture I would like to announce to the world my heart felt thanks to Mr. X.  When I was seriously annoyed enough to go lookout and find the issue, he was the one who pointed out the reason.  And the reason is this, the default config of busybox is to compile as dynamic.  This requires Glibc to be cross compiled and installed in target (in busybox _install folder), to pull the dependencies during run time.  You can change this to static compilation before make'ing busybox using the menuconfig. </li>
+<li>Now you will be able to run.  However this is not what we want.  Busybox must be dynamically linked, to have your first "Hello World" C program in busybox, using normal compilation (without compiling it as static). </li>
+</ol>
+</p>
+<p>
+<h3>Compiling and installing GlibC into busybox: </h3>
+Coming soon!
+</p>
+
+<!-- This part implements the home and prev page link. Keep everything above this! -->
+<p>
+<a href="../programming.html">Previous Page</a>
+<span class="HomePage"><a href="../../index.html">Home</a></span>
+</p>
+
+<div class="footer" id="disclaimer">
+<p>
+Disclaimer: Some of the information in this page does not belong to me in anyway.  I will keep updating the references session to point out the sources from where information was pulled from.  If you have any questions please drop an e-mail to wonkymind86@gmail.com.
+</p>
+</div>
 </div>
 </body>
 </html>

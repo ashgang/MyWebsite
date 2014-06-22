@@ -1,7 +1,8 @@
 application: wonkymindt86
 version: 1b
-runtime: python
+runtime: python27
 api_version: 1
+threadsafe: no
 
 handlers:
 - url: /(.*\.(gif|png|jpg|ico|js|css|mp3|wav))

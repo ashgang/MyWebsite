@@ -4,11 +4,11 @@
 <title>U-Boot</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="../../mysite.css">
-<link rel="stylesheet" href="CrossCompiler.css">
+<link rel="stylesheet" href="UBoot.css">
 <link rel="stylesheet" href="../programming.css">
 </head>
 <body>
-<div id="CrossCompilerPage">
+<div id="UbootPage">
 <h1 id="wonkymind"><a href="../programming.html" id="BackToWonkyUBoot">U-Boot</a></h1>
 
 <p>
@@ -49,13 +49,14 @@ of - output file, this is the SD card name from the /dev directory, pick it up v
 if - input file<br>
 bs - bytes to read at a time.<br>
 seek - start writing 1k from the beginning of the SD card. <br>
-As additional info, if you read the TRM of iMX6, it will say if internal boot is selected and when boot from SD card is provided as boot option, it will copy 4 KB from the SD card to internal memory, the IVT and DCD should compulsorily be in this 4 KB data, after this the whole image is copied to RAM and booting proceeds.  Do not worry, your u-boot will take care of everything.
+As additional info, if you read the TRM of iMX6, it will say if internal boot is selected and when boot from SD card is provided as boot option, it will copy 4 KB from the SD card to internal memory, the IVT and DCD should compulsorily be in this 4 KB data, after this the whole image is copied to RAM and booting proceeds.  Do not worry, your u-boot will take care of everything.<br>
+sync - this will ensure the contents are actually flashed to SD card and not bufferred.
 </ol>
 </p>
 
 <h3>List of commands</h3>
 <p>
-<h5>Downloading u-boot</h5>
+<h4>Downloading u-boot</h4>
 <ol>
 <li>git clone git://git.denx.de/u-boot.git </li>
 <li>git checkout v2014.04 -b tmp</li>
@@ -65,17 +66,19 @@ As additional info, if you read the TRM of iMX6, it will say if internal boot is
 </ol>
 </p>
 <p>
-<h5>Compiling u-boot</h5>
+<h4>Compiling & flashing u-boot to SD card</h4>
 <ol>
 <li>make ARCH=arm CROSS_COMPILE=${CC} distclean</li>
 <li>make ARCH=arm CROSS_COMPILE=${CC} wandboard_dl_config</li>
 <li>make ARCH=arm CROSS_COMPILE=${CC}</li>
+<li>sudo dd of=/dev/sdb if=./u-boot.imx bs=1k seek=1; sync</li>
 </ol>
 </p>
 
+<!-- This part implements the home and prev page link. Keep everything above this! -->
 <p>
-<a href="../../index.html">Home</a>
-<span class="PreviousPage"><a href="../programming.html">Previous Page</a></span>
+<a href="../programming.html">Previous Page</a>
+<span class="HomePage"><a href="../../index.html">Home</a></span>
 </p>
 
 </div>
