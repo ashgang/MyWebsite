@@ -10,7 +10,55 @@
 <body>
 <div id="CrossCompilerPage">
 <h1 id="wonkymind"><a href="../programming.html" id="BackToWonkyLinuxKernel">Linux Kernel</a></h1>
+Compiling kernel sounds intimidating, however interesting to most of us.  The point is this is one of the easiest to compile and get it running.  Note we are not trying to port kernel to a new board, which takes some monumental efforts, we are just compiling and make'ing an flash able image from someone else's work.  Follow the steps and get it done. <br>
+<b>Note: I have set the env variables ARCH=arm and CROSS_COMPILE to my compiler path.  So if you haven't set these variables to bash env variables, where ever I use make you must append the command with ARCH=arm and CROSS_COMPILER="<em>your compiler path</em>".</b>
+<p>
+<ol>
+<li>Get the kernel from git:<br>
+git clone https://www.github.com/wandboard-org/linux (do not forget to select branch, master does not have configurations for wandboard).<br>
+Basically I did this: <br>
+>> git clone -b wandboard_imx_3.10.17_1.0.0_ga https://www.github.com/wandboard-org/linux
+</li>
+<li>Now you can do this and make all necessary general configuration you want.  Mostly every basic thing we need will already be available, so I did nothing.  So just for info: <br>
+>> make menuconfig</li>
+<li>Configure the baseline for wandboard config: <br>
+>> make wandboard_defconfig <br>
+If you are really interested to know what this file has, you can find it in this path "arch/arm/configs", in your baseline.</li>
+<li>Make and create the image:<br>
+>> make; make modules <br>
+make modules will build those modules that were given for module compilation.</li>
+<li>You can find the zImage in "arch/arm/boot" folder.  Create two partitions in your SD card (I did it using GParted), leaving enough space in the beginning for u-boot to reside.  Copy this image to first partition.</li>
+<li>In the recent kernel, it requires a flattened device tree file.  I do not know much about this, however you can generate this from the .dts file for wandboard.  This is now I did: <br>
+>> make imx6dl-wandboard.dts <br>
+You can find this file in "arch/arm/boot/dts".  After generation is complete the imx6dl-wandboard.dtb file is also found in the same locations.  Copy the imx6dl-wandboard.dtb file, also into your first partition. </li>
+<li>Your kernel is ready to boot.  After complete the u-boot and the kernel steps, you can get to a point where wandboard boots and the kernel hits a panic, since it does not find the rootFS.  Follow the Busybox installation pages, to successfully get a minimalistic rootFS. :) </li>
+<li><b>Happy Wandboarding!!!! </b><em>(When Tom, Dick and Harry creates an English word and adds it to dictionary, why should I not :P)</em></li>
+</ol>
+</p>
 
+<h3>List of commands</h3>
+<p>
+<ol>
+<li>git clone -b wandboard_imx_3.10.17_1.0.0_ga https://www.github.com/wandboard-org/linux </li>
+<li>make menuconfig </li>
+<li>make wandboard_defconfig </li>
+<li>make; make modules </li>
+<li>make imx6dl-wandboard.dts </li>
+<li><b>Do not forget to provide ARCH and CROSS_COMPILE to all make commands if these variables haven't been set as bash environment variables.</b></li>
+</ol>
+</p>
+
+<!-- This part implements the home and prev page link. Keep everything above this! -->
+<p>
+<a href="../programming.html">Previous Page</a>
+<span class="HomePage"><a href="../../index.html">Home</a></span>
+</p>
+
+<div class="footer" id="disclaimer">
+<p>
+Disclaimer: Some of the information in this page does not belong to me in anyway.  I will keep updating the references session in programming stuff page, to point out the sources from where information was pulled from.  If you have any questions please drop an e-mail to wonkymind86@gmail.com.
+</p>
+</div>
 </div>
 </body>
 </html>

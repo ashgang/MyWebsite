@@ -69,7 +69,7 @@ mount -a <br>
 <li>Copy the contents of the _install folder to the second partition, and you are done. </li>
 <li>Insert the SD card to your wandboard, and you will still see kernel panic.  hahaha! The error will be init not found.  Feel like hitting me...  hahah! you are in front of a computer screen remember!  Anyway, with all the anxious anger mixed emotions you feel now, scratch your head and think for a while before moving to next step.</li>
 <li>At this juncture I would like to announce to the world my heart felt thanks to Mr. X.  When I was seriously annoyed enough to go lookout and find the issue, he was the one who pointed out the reason.  And the reason is this, the default config of busybox is to compile as dynamic.  This requires Glibc to be cross compiled and installed in target (in busybox _install folder), to pull the dependencies during run time.  You can change this to static compilation before make'ing busybox using the menuconfig. </li>
-<li>Now you will be able to run.  However this is not what we want.  Busybox must be dynamically linked, to have your first "Hello World" C program in busybox, using normal compilation (without compiling it as static). </li>
+<li>Now you will be able to boot up and see prompt.  However this is not what we want.  Busybox must be dynamically linked, to have your first "Hello World" C program in busybox, using normal compilation (without compiling it as static). </li>
 </ol>
 </p>
 <p>
@@ -85,7 +85,7 @@ Coming soon!
 
 <div class="footer" id="disclaimer">
 <p>
-Disclaimer: Some of the information in this page does not belong to me in anyway.  I will keep updating the references session to point out the sources from where information was pulled from.  If you have any questions please drop an e-mail to wonkymind86@gmail.com.
+Disclaimer: Some of the information in this page does not belong to me in anyway.  I will keep updating the references session in programming stuff page, to point out the sources from where information was pulled from.  If you have any questions please drop an e-mail to wonkymind86@gmail.com.
 </p>
 </div>
 </div>
