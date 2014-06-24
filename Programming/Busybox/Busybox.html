@@ -74,7 +74,70 @@ mount -a <br>
 </p>
 <p>
 <h3>Compiling and installing GlibC into busybox: </h3>
-Coming soon!
+<ol>
+<li>Get the source as a tarball:<br>
+>> wget http://ftp.gnu.org/gnu/libc/glibc-2.19.tar.gz </li>
+<li>Unzip the contents: <br>
+>> tar -xzf glibc-2.19.tar.gz</li>
+<li>Make a build directory, that you can use to build glibc and move into the directory: <br>
+>> mkdir glibc-build<br>
+>> cd glibc-build</li>
+<li>Configure glic for compilation: <br>
+>> ../glibc-2.19/configure arm-linux-gnueabi --target=arm-linux-gnueabi --build=i686-pc-linux-gnu --prefix= --enable-add-ons</li>
+<li>Make glibc and do a make install in the path of your rootFS.  Note that building glic will take sometime. <br>
+>> make <br>
+>> make install install_root=/home/Desktop/wandboard/rootFS</li>
+<li>Your busybox is ready for copying to SD card.  Happy Wandboarding!!!</li>
+</ol>
+<p>
+Note the directory of installation of glibc is not busybox _install dorectory.  Generally after compiling busybox, I copy the contents of _install directory of busybox to the above rootFS directory and then create all the sub-directories required here.  So, I directly installed glibc into this path.  It makes it easy for me to copy this directory to SD card or provide this path if loaded via NFS.  Any changes in the actual compilation directories, can be finalized and copied here.  Did you stumble upon the word NFS! Yes! that will be the next topic of discussion.
+</p>
+</p>
+
+<h3>List of commands</h3>
+<p>
+<h4>Busybox compilation</h4>
+<ol>
+<li>tar -xjvf busybox-1.22.1.tar.bz2</li>
+<li>cd busybox-1.22.1</li>
+<li>make defconfig</li>
+<li>make</li>
+<li>make install</li>
+<li>cd _install <br>
+mkdir dev <br>
+mkdir proc <br>
+mkdir sys <br>
+mkdir -p etc/init.d </li>
+<li>vim etc/inittab <br>
+Copy the following:<br>
+::sysinit:/etc/init.d/rcS <br>
+::askfirst:/bin/sh <br>
+::ctrlaltdel:/sbin/reboot <br>
+::shutdown:/sbin/swapoff -a <br>
+::shutdown:/bin/umount -a -r <br>
+::restart:/sbin/init </li>
+<li>vim etc/fstab<br>
+Copy the following in fstab:<br>
+proc /proc proc defaults 0 0 <br>
+sysfs /sys sysfs defaults 0 0 <br>
+devtmpfs /dev devtmpfs defaults 0 0 </li>
+<li>vim etc/init.d/rcS<br>
+#!/bin/sh <br> 
+mount -a </li>
+<li>chmod +x etc/init.d/rcS </li>
+</ol>
+</p>
+<p>
+<h4>Compiling and installing Glibc</h4>
+<ol>
+<li>wget http://ftp.gnu.org/gnu/libc/glibc-2.19.tar.gz</li>
+<li>tar -xzf glibc-2.19.tar.gz</li>
+<li>mkdir glibc-build</li>
+<li>cd glibc-build</li>
+<li>../glibc-2.19/configure arm-linux-gnueabi --target=arm-linux-gnueabi --build=i686-pc-linux-gnu --prefix= --enable-add-ons</li>
+<li>make </li>
+<li>make install install_root=/home/Desktop/wandboard/rootFS </li>
+</ol>
 </p>
 
 <!-- This part implements the home and prev page link. Keep everything above this! -->
@@ -85,7 +148,7 @@ Coming soon!
 
 <div class="footer" id="disclaimer">
 <p>
-Disclaimer: Some of the information in this page does not belong to me in anyway.  I will keep updating the references session in programming stuff page, to point out the sources from where information was pulled from.  If you have any questions please drop an e-mail to wonkymind86@gmail.com.
+Disclaimer: Some of the information in this page does not belong to me in anyway.  I will keep updating the references session in programming stuff page, to point out the sources from where information was pulled from.  If you have any questions please drop an e-mail to wonkymind86@gmail.com.  E-mail id of Mr. X: mrxpolice@gmail.com
 </p>
 </div>
 </div>
