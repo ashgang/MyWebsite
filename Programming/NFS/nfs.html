@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wonky Mind:Programming Stuff:NFS</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../mysite.css">
+<link rel="stylesheet" href="nfs.css">
+<link rel="stylesheet" href="../programming.css">
+</head>
+<body>
+<div id="NFSPage">
+<h1 id="wonkymind"><a href="../programming.html" id="BackToWonkyNFS">NFS</a></h1>
+
+<p>
+<h3>NFS server installation and configuration in PC</h3>
+I use Ubuntu as host, so this is what I did to install and configure nfs server
+<ol>
+<li>sudo apt-get install rpcbind nfs-kernel-server --fix-missing</li>
+<li>After installation, NFS was automatically started</li>
+<li>Include this line in /etc/exports as below.  Give <br>
+>> sudo /etc/exports <br>
+else it will not allow to save the file in ubuntu. <br>
+- /home/Wonky/Desktop/wandboard/RootFS 192.168.1.0/24(rw,sync,no_root_squash,no_subtree_check)<br>
+- /home/Wonky/Desktop/wandboard/RootFS - This is the location of my rootFS in my host <br>
+- 192.168.1.0 - Is the IP of my board to allow connection to rootFS <br>
+- 24 and the rest - I have no idea, check it yourself.  Whatever it is this works. :) </li>
+<li>After modification in /etc/exports you have to restart nfs server.<br>
+>> service nfs-kernel-server restart</li>
+<li>That's it! we're done with everything to be done in host. </li>
+</ol>
+</p>
+
+<p>
+<h3>Configuring U-Boot to load Busybox via NFS</h3>
+Everything to be enabled in U-Boot and kernel was already there by default when I tried.  Only thing what I did was the following, to get Busybox via NFS.
+<ol>
+<li>Load flattened device tree<br>
+>> run loadfdt </li>
+<li>Load zImage<br>
+>> run loadzImage </li>
+<li>Modify the mmcroot and mmcrootfstype to NFS <br>
+>> setenv mmcroot /dev/nfs<br>
+>> setenv mmcrootfstype nfs</li>
+<li>This is the most important step, and it took me some time to figure this out <br>
+>> setenv bootargs console=${console},${baudrate} ${optargs} root=${mmcroot} rootfstype=${mmcrootfstype} nfsroot=192.168.1.1:/home/Wonky/Desktop/wandboard/RootFS ip=192.168.1.2:192.168.1.1:192.168.1.5:255.255.255.0:ubuntu rootdelay=2 </li>
+<li>You may or may not have the root delay, from my part I saw no use of it.  Now start the kernel<br>
+>> run mmcbootdefault </li>
+<li>It might take a while to mount and load rootFS via NFS.  Be patient. </li>
+<li>If it fails, try to check the kernel arguments from U-Boot that is printed somewhere around first 10 line when kernel loads. </li>
+<li>If everything is correct try to check your connections.  Try to ping your host from U-Boot (note for this ipaddr env must be set).  Try to ping your target from the host.  Ping should work from both sides without any issues. </li>
+<li>For those who have your Linux host in VMWare player, hahahah you might have to do some annoying network configuration and bridging steps, before it works. </li>
+<li>For those of you, you will see that ping from target to host works normally (U-Boot will say host alive!).  But your ping from host to target will fails and timeout.  Reason, your connection might not be bridged from windows to VMWare.  I had this issue.</li>
+</ol>
+<p>
+
+</p>
+<b>Statutory warning:</b> This is just the way I got it working.  There may be 100 other ways, don't come bashing at me with your ways.  If you can figure it out, do it yourself.  I agree, this is no rocket science.
+</p>
+
+<h3>List of commands</h3>
+<p>
+<h4>NFS server installation and configuration in PC</h4>
+<ol>
+
+</ol>
+</p>
+
+<p>
+<h4>Configuring U-Boot to load Busybox via NFS</h4>
+<ol>
+
+</ol>
+</p>
+
+<!-- This part implements the home and prev page link. Keep everything above this! -->
+<p>
+<a href="../programming.html">Previous Page</a>
+<span class="HomePage"><a href="../../index.html">Home</a></span>
+</p>
+
+<div class="footer" id="disclaimer">
+<p>
+Disclaimer: Some of the information in this page does not belong to me in anyway.  I will keep updating the references session in programming stuff page, to point out the sources from where information was pulled from.  If you have any questions please drop an e-mail to wonkymind86@gmail.com.  E-mail id of Mr. X: mrxpolice@gmail.com
+</p>
+</div>
+</div>
+</body>
+</html>

@@ -40,6 +40,16 @@ Before going into any of these make sure you have a cross compiler installed in 
 </p>
 
 <p>
+After getting Busybox up and running, Mr. X and myself were discussing what next to explore.  The next idea we had were to do two things:
+<ul>
+<li>Remove default init of Busybox and replace it with systemd.  Apparently it has to be cross compiled for ARM platform from code.</li>
+<li>Try to get pulse audio working in wandboard (Maybe its available, we wanted to do our own, OOPS supporters don't come out bashing with your reinventing cycle theory, learning takes some reinventing.  May be we may also invent something in the process :P)</li>
+</ul>
+However, when Mr. X started working in systemd, he realized that he will break his SD card slot and power port, before he gets systemd running.  So he was checking if we can load Busybox via NFS.  I joined a bit late here, but somehow I got it working quickly.  Since we work on VMWare player, sometimes its settings does not allow us to get network things working very easily.  And yes, our next venture in the steps of climbing Mt. Everest is to set up NFS, and mirror what Tenzing and Hillary did :P.  That was little too much of bragging, of course we weren't the first to do it.<br>
+Here's what I did to get NFS working: <a href="NFS/nfs.html">Follow Me!</a>
+</p>
+
+<p>
 References are taken from the below mentioned links:
 <ol>
 <li><a target="_blank" href="http://www.eewiki.net/display/linuxonarm/Wandboard">http://www.eewiki.net/display/linuxonarm/Wandboard</a></li>
